@@ -13,7 +13,7 @@ public class Main {
 
 class Solution {
     public boolean isSubsequence(String s, String t) {
-        if (s.isBlank()) {
+        if (s.isEmpty()) {
             return false;
         }
         char[] sChars = s.toCharArray();
