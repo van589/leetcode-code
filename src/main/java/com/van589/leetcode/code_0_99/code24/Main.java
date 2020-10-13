@@ -26,27 +26,15 @@ public class Main {
 }
 
 class Solution {
-    private ListNode pre;
-    private ListNode node;
 
     public ListNode swapPairs(ListNode head) {
-        node = node == null ? head : node;
         if (head == null || head.next == null) {
-            return node;
+            return head;
         }
         ListNode next = head.next;
-        ListNode next2next = head.next.next;
-
+        head.next = swapPairs(next.next);
         next.next = head;
-        head.next = next2next;
-        node = pre == null ? next : node;
-
-        if (pre != null) {
-            pre.next = next;
-        }
-        pre = head;
-
-        return swapPairs(next2next);
+        return next;
     }
 }
 
